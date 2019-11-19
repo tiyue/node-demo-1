@@ -24,12 +24,21 @@ var server = http.createServer(function (request, response) {
   if (path === '/') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write(`二哈`)
+    response.write(`
+      <!DOCTYPE html>
+      <head>
+        <link rel="stylesheet" href="/x">
+      </head>
+      <body>
+        <h1>你好</h1>
+      </body>
+  `)
+
     response.end()
   } else if (path === '/x') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/css;charset=utf-8')
-    response.write(`h1{color: red;}`)
+    response.write(`body{color: red;}`)
     response.end()
   } else {
     response.statusCode = 404
